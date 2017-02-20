@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d轮播图</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			margin-top: 50px; 
+			position: relative;
+		}
+		.wrap ul{
+			position: relative;
+			width: 970px;
+			height: 344px;
+			margin: 0 auto;
+		}
+		.prev,.next{
+			position: absolute;
+			z-index: 3;
+			top: 50%;
+			margin-top: -56px;
+			width: 76px;
+			height: 115px;
+		}
+		.prev{
+			left: 50%;
+			margin-left: -412px;
+			background: url('../img/prev.png');
+		}
+		.next{
+			right: 50%;
+			margin-right: -412px;
+			background: url('../img/next.png');
+		}
+		.prev:hover{
+			background: url('../img/prev_1.png');
+		}
+		.next:hover{
+			background: url('../img/next_1.png');
+		}
+		li{
+			list-style-type: none;
+			position: absolute;
+			padding: 4px;
+			background: #fff;
+		}
+		li.li-left2{
+			z-index: 1;
+			right: 50%;
+    		margin-right: 196px;
+			top: 50%;
+			margin-top: -68.29px;
+
+		}
+		li.li-left2 img,li.li-right2 img{
+			width: 270px;
+			height: 136.58px;
+		}
+		li.li-left1{
+			z-index: 2;
+			right: 50%;
+    		margin-right: -90px;
+			top: 50%;
+			margin-top: -129px;
+		}
+		li.li-left1 img,li.li-right1 img{
+			width: 510px;
+			height: 258px;
+		}
+		li.li-center{
+			z-index: 3;
+			left: 50%;
+			margin-left: -340px;
+		}
+		li.li-center img{
+			width: 672px;
+			height: 336px;
+		}
+		li.li-right1{
+			z-index: 2;
+			left: 50%;
+    		margin-left: -90px;
+			top: 50%;
+			margin-top: -129px;
+		}
+		li.li-right2{
+			z-index: 1;
+			left: 50%;
+    		margin-left: 196px;
+			top: 50%;
+			margin-top: -68.29px;
+		}
+		li.li-other{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="prev"></div>
+		<ul>
+			<li class="li-left2"><img src="../img/1.jpg" alt="图1"></li>
+			<li class="li-left1"><img src="../img/2.jpg" alt="图2"></li>
+			<li class="li-center"><img src="../img/3.jpg" alt="图3"></li>
+			<li class="li-right1"><img src="../img/4.jpg" alt="图4"></li>
+			<li class="li-right2"><img src="../img/5.jpg" alt="图5"></li>
+			<li class="li-other"><img src="../img/6.jpg" alt="图6"></li>
+			<li class="li-other"><img src="../img/7.jpg" alt="图7"></li>
+			<li class="li-other"><img src="../img/8.jpg" alt="图8"></li>
+		</ul>
+		<div class="next"></div>
+	</div>
+
+	
+	<script type="text/javascript">
+	 	var curIndex = 2;
+	 	var indexStr = '01234567';
+
+		var prev = document.querySelector('.prev');
+		var next = document.querySelector('.next');
+
+		var LIs = document.querySelectorAll('li'); 
+
+		prev.addEventListener('click',function(){
+			curIndex = parseInt(indexStr.substr(--curIndex,1));
+			trans(curIndex);
+		});
+		next.addEventListener('click',function(){
+			curIndex = parseInt(indexStr.substr(++curIndex,1) || 0);
+			trans(curIndex);
+		});
+
+		function trans(index){
+			if(index+2>7){
+				index -= indexStr.length*parseInt((index+2)/7);
+			}
+			var right_index2 = parseInt(indexStr.substr(index + 2,1));
+			var right_index1 = parseInt(indexStr.substr(index + 1,1));
+			var left_index2 = parseInt(indexStr.substr(index - 2,1));
+			var left_index1 = parseInt(indexStr.substr(index - 1,1));
+			index = parseInt(indexStr.substr(index,1));
+
+			for (var i = 0; i < LIs.length; i++) {
+				LIs[i].className = "li-other";
+			}
+
+			LIs[index].className = "li-center";
+			LIs[left_index1].className = "li-left1";
+			LIs[left_index2].className = "li-left2";
+			LIs[right_index1].className = "li-right1";
+			LIs[right_index2].className = "li-right2";
+		}
+
+
+	</script>
+
+</body>
+</html>
