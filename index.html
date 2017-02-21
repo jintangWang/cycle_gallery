@@ -9,7 +9,7 @@
 			padding: 0;
 		}
 		.wrap{
-			margin-top: 50px; 
+			margin-top: 150px; 
 			position: relative;
 		}
 		.wrap ul{
@@ -20,7 +20,7 @@
 		}
 		.prev,.next{
 			position: absolute;
-			z-index: 3;
+			z-index: 4;
 			top: 50%;
 			margin-top: -56px;
 			width: 76px;
@@ -48,40 +48,57 @@
 			padding: 4px;
 			background: #fff;
 		}
+		li img{
+			width: 100%;
+			height: 100%;
+		}
+		li.li-left3{
+			z-index: 1;
+			opacity: 0;
+			right: 50%;
+    		margin-right: 196px;
+    		top: -50px;
+    		margin-top: -68.29px;
+		}
 		li.li-left2{
 			z-index: 1;
+			opacity: 0.6;
 			right: 50%;
     		margin-right: 196px;
 			top: 50%;
 			margin-top: -68.29px;
-
 		}
-		li.li-left2 img,li.li-right2 img{
+		li.li-left2,li.li-right2,li.li-left3,li.li-right3,
+		li.li-left-anim2,li.li-right-anim2,li.li-left-anim3,li.li-right-anim3{
 			width: 270px;
 			height: 136.58px;
 		}
 		li.li-left1{
 			z-index: 2;
+			opacity: 0.8;
 			right: 50%;
     		margin-right: -90px;
 			top: 50%;
 			margin-top: -129px;
 		}
-		li.li-left1 img,li.li-right1 img{
+		li.li-left1,li.li-right1,
+		li.li-left-anim1,li.li-right-anim1{
 			width: 510px;
 			height: 258px;
 		}
 		li.li-center{
 			z-index: 3;
+			opacity: 1;
 			left: 50%;
 			margin-left: -340px;
 		}
-		li.li-center img{
+		li.li-center,li.li-center-anim{
 			width: 672px;
 			height: 336px;
 		}
 		li.li-right1{
 			z-index: 2;
+			opacity: 0.8;
 			left: 50%;
     		margin-left: -90px;
 			top: 50%;
@@ -89,13 +106,294 @@
 		}
 		li.li-right2{
 			z-index: 1;
+			opacity: 0.6;
 			left: 50%;
     		margin-left: 196px;
 			top: 50%;
 			margin-top: -68.29px;
 		}
+		li.li-right3{
+			opacity: 0;
+			z-index: 1;
+			left: 50%;
+    		margin-left: 196px;
+    		top: -50px;
+    		margin-top: -68.29px;
+		}
 		li.li-other{
 			display: none;
+		}
+
+		li.li-center-anim-reverse{
+			animation: center-anim-reverse 1.5s forwards;
+		}
+		li.li-center-anim{
+			animation: center-anim 1.5s forwards;
+		}
+
+		li.li-left-anim1-reverse{
+			animation: left-anim1-reverse 1.5s forwards;
+		}
+		li.li-left-anim1{
+			animation: left-anim1 1.5s forwards;
+		}
+
+		li.li-right-anim1-reverse{
+			animation: right-anim1-reverse 1.5s forwards;
+		}
+		li.li-right-anim1{
+			animation: right-anim1 1.5s forwards;
+		}
+		
+		li.li-left-anim2-reverse{
+			right: 50%;
+			top: 50%;	
+			animation: left-anim2-reverse 1.5s forwards;
+		}
+		li.li-left-anim2{
+			right: 50%;
+			margin-right: 196px;
+			margin-top: -68.29px;
+			animation: anim3-reverse 1.5s forwards;
+		}
+
+		li.li-right-anim2-reverse{
+			left: 50%;
+    		margin-left: 196px;
+			margin-top: -68.29px;
+			animation: anim3-reverse 1.5s forwards;
+		}
+		li.li-right-anim2{
+			left: 50%;
+			top: 50%;
+			animation: right-anim2 1.5s forwards;
+		}
+
+		li.li-left-anim3-reverse{
+			z-index: 1;
+			right: 50%;
+    		margin-right: 196px;	
+    		margin-top: -68.29px;
+			animation: anim3 1.5s forwards;
+		}
+		li.li-left-anim3{
+			z-index: 1;
+			left: 50%;
+    		margin-left: 196px;
+    		margin-top: -68.29px;
+			animation: anim3-reverse 1.5s forwards;
+		}
+
+		li.li-right-anim3{
+			z-index: 1;
+			left: 50%;
+    		margin-left: 196px;	
+    		margin-top: -68.29px;
+			animation: anim3 1.5s forwards;
+		}
+		/* 默认是逆时针方向变幻，-reverse则为顺时针 */
+		@keyframes center-anim-reverse{
+			0%{
+				z-index: 2;
+				opacity: 0.8;
+				left: 50%;
+	    		margin-left: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+			100%{
+				z-index: 3;
+				opacity: 1;
+				left: 50%;
+				margin-left: -340px;
+				top: auto;
+				margin-top: auto;
+				width: 672px;
+				height: 336px;
+			}
+		}
+		@keyframes center-anim{
+			0%{
+				z-index: 2;
+				opacity: 0.8;
+				right: 50%;
+	    		margin-right: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+			100%{
+				z-index: 3;
+				opacity: 1;
+				right: 50%;
+				margin-right: -340px;
+				top: auto;
+				margin-top: auto;
+				width: 672px;
+				height: 336px;
+			}
+		}
+		@keyframes left-anim1-reverse{
+			0%{
+				z-index: 3;
+				opacity: 1;
+				right: 50%;
+				margin-right: -340px;
+				width: 672px;
+				height: 336px;
+			}
+			100%{
+				z-index: 2;
+				opacity: 0.8;
+				right: 50%;
+	    		margin-right: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+		}
+		@keyframes left-anim1{
+			0%{
+				z-index: 1;
+				opacity: 0.6;
+				right: 50%;
+	    		margin-right: 196px;
+				top: 50%;
+				margin-top: -68.29px;
+				width: 270px;
+				height: 136.58px;
+			}
+			100%{
+				z-index: 2;
+				opacity: 0.8;
+				right: 50%;
+	    		margin-right: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+		}
+		@keyframes right-anim1-reverse{
+			0%{
+				z-index: 1;
+				opacity: 0.6;
+				left: 50%;
+	    		margin-left: 196px;
+				top: 50%;
+				margin-top: -68.29px;
+				width: 270px;
+				height: 136.58px;
+			}
+			100%{
+				z-index: 2;
+				opacity: 0.8;
+				left: 50%;
+	    		margin-left: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+		}
+		@keyframes right-anim1{
+			0%{
+				z-index: 3;
+				opacity: 1;
+				left: 50%;
+				margin-left: -340px;
+				width: 672px;
+				height: 336px;
+			}
+			100%{
+				z-index: 2;
+				opacity: 0.8;
+				left: 50%;
+	    		margin-left: -90px;
+				top: 50%;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+		}
+		/*anim3在此实现left-anim2*/
+		@keyframes left-anim2-reverse{
+			0%{
+				z-index: 2;
+				opacity: 0.8;
+	    		margin-right: -90px;
+				margin-top: -129px;
+				width: 510px;
+				height: 258px;
+			}
+			100%{
+				z-index: 1;
+				opacity: 0.6;
+	    		margin-right: 196px;
+				margin-top: -68.29px;
+				width: 270px;
+				height: 136.58px;
+			}
+		}
+		@keyframes right-anim2-reverse{
+			0%{
+				width: 510px;
+				height: 258px;
+				z-index: 2;
+				opacity: 0.8;
+    			margin-left: -90px;
+				margin-top: -129px;
+			}
+			100%{
+				width: 270px;
+				height: 136.58px;
+				z-index: 1;
+				opacity: 0.6;
+	    		margin-left: 196px;
+				margin-top: -68.29px;
+			}
+		}
+		@keyframes right-anim2{
+			0%{
+				width: 510px;
+				height: 258px;
+				z-index: 2;
+				opacity: 0.8;
+    			margin-left: -90px;
+				margin-top: -129px;
+			}
+			100%{
+				width: 270px;
+				height: 136.58px;
+				z-index: 1;
+				opacity: 0.6;
+	    		margin-left: 196px;
+				margin-top: -68.29px;
+			}
+		}
+		@keyframes anim3-reverse{
+			0%{
+				opacity: 0;
+	    		top: -50px;
+			}
+			100%{
+				opacity :0.6;
+				top: 50%;
+			}
+		}
+		@keyframes anim3{ 
+			0%{
+				opacity :0.6;
+				top: 50%;
+			}
+			100%{
+				opacity: 0;
+	    		top: -50px;
+			}
 		}
 	</style>
 </head>
@@ -108,9 +406,9 @@
 			<li class="li-center"><img src="./img/3.jpg" alt="图3"></li>
 			<li class="li-right1"><img src="./img/4.jpg" alt="图4"></li>
 			<li class="li-right2"><img src="./img/5.jpg" alt="图5"></li>
-			<li class="li-other"><img src="./img/6.jpg" alt="图6"></li>
+			<li class="li-right3"><img src="./img/6.jpg" alt="图6"></li>
 			<li class="li-other"><img src="./img/7.jpg" alt="图7"></li>
-			<li class="li-other"><img src="./img/8.jpg" alt="图8"></li>
+			<li class="li-left3"><img src="./img/8.jpg" alt="图8"></li>
 		</ul>
 		<div class="next"></div>
 	</div>
@@ -119,6 +417,7 @@
 	<script type="text/javascript">
 	 	var curIndex = 2;
 	 	var indexStr = '01234567';
+	 	// var classArr = ['li-left2'];
 
 		var prev = document.querySelector('.prev');
 		var next = document.querySelector('.next');
@@ -126,33 +425,44 @@
 		var LIs = document.querySelectorAll('li'); 
 
 		prev.addEventListener('click',function(){
-			curIndex = parseInt(indexStr.substr(--curIndex,1));
-			trans(curIndex);
+			curIndex = parseInt(indexStr.substr(++curIndex,1) || 0);
+			trans(curIndex,'left');
 		});
 		next.addEventListener('click',function(){
-			curIndex = parseInt(indexStr.substr(++curIndex,1) || 0);
-			trans(curIndex);
+			curIndex = parseInt(indexStr.substr(--curIndex,1));
+			trans(curIndex,'right');
 		});
 
-		function trans(index){
-			if(index+2>7){
-				index -= indexStr.length*parseInt((index+2)/7);
+
+		//处理样式
+		function trans(index,orientation){
+			if(index+3>7){
+				index -= indexStr.length*parseInt((index+3)/7);
 			}
+			var right_index3 = parseInt(indexStr.substr(index+3,1));
 			var right_index2 = parseInt(indexStr.substr(index + 2,1));
 			var right_index1 = parseInt(indexStr.substr(index + 1,1));
+			var left_index3 = parseInt(indexStr.substr(index - 3,1));
 			var left_index2 = parseInt(indexStr.substr(index - 2,1));
 			var left_index1 = parseInt(indexStr.substr(index - 1,1));
 			index = parseInt(indexStr.substr(index,1));
 
-			for (var i = 0; i < LIs.length; i++) {
-				LIs[i].className = "li-other";
+			if(orientation == 'right'){
+				LIs[index].className = "li-center-anim";
+				LIs[left_index1].className = "li-left-anim1";
+				LIs[left_index2].className = "li-left-anim2";
+				LIs[right_index1].className = "li-right-anim1";
+				LIs[right_index2].className = "li-right-anim2";
+				LIs[right_index3].className = "li-right-anim3";
+			}else{
+				LIs[index].className = "li-center-anim-reverse";
+				LIs[left_index1].className = "li-left-anim1-reverse";
+				LIs[left_index2].className = "li-left-anim2-reverse";
+				LIs[left_index3].className = "li-left-anim3-reverse";
+				LIs[right_index1].className = "li-right-anim1-reverse";
+				LIs[right_index2].className = "li-right-anim2-reverse";
 			}
-
-			LIs[index].className = "li-center";
-			LIs[left_index1].className = "li-left1";
-			LIs[left_index2].className = "li-left2";
-			LIs[right_index1].className = "li-right1";
-			LIs[right_index2].className = "li-right2";
+			
 		}
 
 
